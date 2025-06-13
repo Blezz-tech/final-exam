@@ -8,16 +8,28 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    /**
+     * Страница регистрации пользователя
+     */
     public function create()
     {
         return view('auth.create');
     }
 
+    /**
+     * Запрос регистрации пользователя
+     */
     public function loginform()
     {
         return view('auth.login');
     }
 
+    /**
+     * Запрос регистрации пользователя
+     * 
+     * Параметры метода:
+     * $request - коллекция данных пользователя
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -42,6 +54,9 @@ class AuthController extends Controller
         return redirect('/')->with('info', 'Вы успешно зарегистрировались!');
     }
 
+    /**
+     * Страница авторизации пользователя
+     */
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -61,6 +76,9 @@ class AuthController extends Controller
         return back()->withErrors(['Данные не соответствуют!']);
     }
 
+    /**
+     * Запрос авторизации пользователя
+     */
     public function logout()
     {
         Auth::logout();

@@ -3,15 +3,6 @@
 @section('content')
     <div class='container w-50'>
         <h1>Введите данные</h1>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <form method="post" action="{{ route('auth.login') }}">
             @csrf
             <div class="mb-3">

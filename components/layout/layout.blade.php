@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
-    <title>Document</title>
+    <title>@yield('title')</title>
 </head>
 
 <body>
@@ -22,7 +22,6 @@
                 {{-- <a class="navbar-brand" href="{{route('tasks.create')}}">Создать заявку</a> --}}
                 {{-- <a class="navbar-brand" href="{{route('orders.list')}}" class="nav-link active">Мои заказы</a> --}}
                 {{-- TODO: Ссылки на страницы с какой-то работой (Нужно добавить свот - верхние удалить) --}}
-                
             @endauth
 
             <div class="d-flex" style="width: max-content">

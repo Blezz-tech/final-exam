@@ -15,10 +15,10 @@ $table->boolean('is_admin')->nullable()->default(false);
 use App\Http\Controllers\AuthController;
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [AuthController::class, 'create'])->name('auth.create');
+    Route::get('/register', [AuthController::class, 'createform'])->name('auth.createform');
     Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 
-    Route::get('/login', [AuthController::class, 'loginform'])->name('login');
+    Route::get('/login', [AuthController::class, 'loginform'])->name('auth.loginform');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
 

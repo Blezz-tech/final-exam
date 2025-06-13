@@ -28,6 +28,7 @@ class AuthController extends Controller
      * Запрос регистрации пользователя
      * 
      * Параметры метода:
+     * 
      * $request - коллекция данных пользователя
      */
     public function store(Request $request)

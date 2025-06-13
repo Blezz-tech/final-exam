@@ -80,7 +80,7 @@ class ListControllers extends Command
                 $description = implode("\n", $lines);
 
                 $this->line("");
-                $this->line("- " . $method->getName());
+                $this->line("- " . $method->getName() . ":");
                 $this->line($description ?: 'Отсутствует');
             }
 

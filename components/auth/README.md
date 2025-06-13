@@ -7,7 +7,7 @@ $table->string('login');
 $table->boolean('is_admin')->nullable()->default(false);
 ```
 
-Добавь файоы 
+Добавить файлы
 
 В файле `routes/web.php`
 

@@ -21,7 +21,7 @@
                 {{-- <a class="navbar-brand" href="{{route('tasks.index')}}">Заявки</a> --}}
                 {{-- <a class="navbar-brand" href="{{route('tasks.create')}}">Создать заявку</a> --}}
                 {{-- <a class="navbar-brand" href="{{route('orders.list')}}" class="nav-link active">Мои заказы</a> --}}
-                {{-- TODO: Ссылки на страницы с какой-то работой (Нужно добавить свот - верхние удалить) --}}
+                {{-- TODO: Ссылки на страницы с какой-то работой (Нужно добавить свои - верхние удалить) --}}
             @endauth
 
             <div class="d-flex" style="width: max-content">

@@ -7,8 +7,6 @@ $table->string('login');
 $table->boolean('is_admin')->nullable()->default(false);
 ```
 
-Добавить файлы
-
 В файле `routes/web.php`
 
 ```php
@@ -27,4 +25,10 @@ Route::middleware(['auth'])->group(function () {
 });
 ```
 
-Закинуть файл AuthController.php в app/Http/Controllers
+Закинуть файл `AuthController.php` в `app/Http/Controllers`
+
+Доработать валидацию дополнительныз полей в store в `AuthController.php`
+
+Закинуть файлы `create.blade.php` и `login.blade.php` в `resources/views/auth/`
+
+Доработать форму регистрации пользователя с дополнительными данными.

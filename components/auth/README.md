@@ -16,6 +16,11 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
+
+Route::middleware(['admin'])->group(function () {
+    // Запросы, которые может делать только админ
+    // И страницы админа
+});
 ```
 
 Закинуть файл `AuthController.php` в `app/Http/Controllers`

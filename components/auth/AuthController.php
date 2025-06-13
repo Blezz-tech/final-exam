@@ -25,8 +25,6 @@ class AuthController extends Controller
             'login' => ['regex:/^[0-9A-Za-z\-]+$/', 'unique:users', 'required'],
             'email' => ['email', 'unique:users', 'required'],
             'password' => ['confirmed', 'min:6', 'required'],
-            // 'surname' => ['regex:/^[А-Яа-я\- ]{1,}$/u', 'required'],
-            // 'patronymic' => ['regex:/^[А-Яа-я\- ]{0,}$/u', 'nullable'],
             // И иные данные для валидации
         ]);
 
@@ -35,8 +33,6 @@ class AuthController extends Controller
             'login' => $request->login,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            // 'surname' => $request->surname,
-            // 'patronymic' => $request->patronymic,
             // И иные данные для валидации
         ]);
 

@@ -46,7 +46,7 @@ User::factory()->create([
     'login' => 'admin1',
     'email' => 'admin1@admin.admin',
     'password' =>  Hash::make('123'),
-    'isAdmin' => 1,
+    'is_admin' => 1,
 ]);
 
 // admin по заданию !!! Важно, чтобы всё совпадало с заданием
@@ -54,7 +54,7 @@ User::factory()->create([
     'login' => 'help',
     'email' => 'admin@admin.admin',
     'password' =>  Hash::make('helpme'),
-    'isAdmin' => 1,
+    'is_admin' => 1,
 ]);
 
 // Создаём пользователя, которого будем тестировать

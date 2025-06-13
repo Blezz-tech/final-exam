@@ -5,6 +5,13 @@
 ```php
 use App\Http\Controllers\AuthController;
 
+// Удлаить старый welcome.blade.php
+// Удалить старый Route /
+
+Route::get('/', function () {
+    return view('pages.home');
+});
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [AuthController::class, 'createform'])->name('auth.createform');
     Route::post('/register', [AuthController::class, 'store'])->name('auth.store');

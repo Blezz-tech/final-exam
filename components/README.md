@@ -1,4 +1,5 @@
 # Комопненты
 
-- [Авторицаия](./auth/README.md)
-- 
+1. [Добавление bootstrap](./bootstrap/README.md)
+2. [Создание layout](./layout/README.md)
+3. [Авторизация](./auth/README.md)

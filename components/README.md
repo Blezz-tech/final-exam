@@ -6,4 +6,4 @@
 
 Отдельно
 
-- [Валидация данных](./validation/README.md)
+- [Валидация данных (Примеры)](./validation/README.md)

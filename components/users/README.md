@@ -69,3 +69,14 @@ User::factory()->count(10)->create([
     'password' => Hash::make('123'),
 ]);
 ```
+
+ВАЖНАЯ ВЕЩЬ
+
+В файле `config/app.php`
+
+Чтобы было
+
+```php
+'locale' => 'ru',
+'faker_locale' => 'ru_RU',
+```

@@ -2,7 +2,8 @@
 
 1. [Добавление bootstrap](./bootstrap/README.md)
 2. [Создание layout](./layout/README.md)
-3. [Авторизация](./auth/README.md)
+3. [Доработка пользователя](./users/README.md)
+4. [Авторизация](./auth/README.md)
 
 Отдельно
 

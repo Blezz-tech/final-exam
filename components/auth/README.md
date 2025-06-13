@@ -1,12 +1,5 @@
 # Авторизация
 
-Добавь в миграцию users.
-
-```php
-$table->string('login');
-$table->boolean('is_admin')->nullable()->default(false);
-```
-
 В файле `routes/web.php`
 
 ```php

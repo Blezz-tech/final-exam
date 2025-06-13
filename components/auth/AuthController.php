@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class AuthController extends Controller
+{
+    public function create()
+    {
+        return view('auth.create');
+    }
+
+    public function loginform()
+    {
+        return view('auth.login');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['regex:/^[А-Яа-я\- ]{1,}$/u', 'required'],
+            'login' => ['regex:/^[0-9A-Za-z\-]+$/', 'unique:users', 'required'],
+            'email' => ['email', 'unique:users', 'required'],
+            'password' => ['confirmed', 'min:6', 'required'],
+            // 'surname' => ['regex:/^[А-Яа-я\- ]{1,}$/u', 'required'],
+            // 'patronymic' => ['regex:/^[А-Яа-я\- ]{0,}$/u', 'nullable'],
+            // И иные данные для валидации
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'login' => $request->login,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            // 'surname' => $request->surname,
+            // 'patronymic' => $request->patronymic,
+            // И иные данные для валидации
+        ]);
+
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect('/')->with('info', 'Вы успешно зарегистрировались!');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'login' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            if (Auth::user()->is_admin) {
+                return redirect('/')->with('info', 'Вы зашли как администратор');
+            } else {
+                return redirect('/')->with('info', 'Вход выполнен!');
+            }
+        }
+
+        return back()->withErrors(['Данные не соответствуют!']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/')->with('info', 'Выход выполнен!');
+    }
+}

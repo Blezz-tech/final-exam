@@ -25,9 +25,9 @@ class UserSeeder extends Seeder
 
         // admin по заданию !!! Важно, чтобы всё совпадало с заданием
         User::factory()->create([
-            'login' => 'help',
+            'login' => 'sklad',
             'email' => 'admin@admin.admin',
-            'password' =>  bcrypt('helpme'),
+            'password' =>  bcrypt('123qwe'),
             'is_admin' => 1,
         ]);
 

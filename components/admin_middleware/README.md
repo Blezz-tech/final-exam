@@ -1,6 +1,6 @@
 # Промежуточная обработка. Проверка на админа
 
-Добавление в файле `app/Http/Kernel.php` в `$middlewareAliases`
+Добавление в файле `app/Http/Kernel.php` в `$routeMiddleware`
 
 ```php
 'admin' => \App\Http\Middleware\AdminMiddleware::class,
@@ -22,4 +22,10 @@ php artisan make:middleware AdminMiddleware
         }
         abort('404');
     }
+```
+
+В этом же файле нужно добавить импорт
+
+```php
+use Illuminate\Support\Facades\Auth;
 ```

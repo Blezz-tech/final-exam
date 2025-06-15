@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('login');
             $table->boolean('is_admin')->nullable()->default(false);
-            // Дополнительные поля
+            $table->string('phone');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class AuthController extends Controller
     /**
      * Страница регистрации пользователя
      */
-    public function create()
+    public function createform()
     {
         return view('auth.create');
     }

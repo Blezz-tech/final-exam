@@ -6,7 +6,7 @@
         <form method="post" action="{{ route('auth.store') }}">
             @csrf
             <div class="mb-3">
-              <label for="name" class="form-label">Имя</label>
+              <label for="name" class="form-label">ФИО</label>
               <input name="name" type="string" class="form-control" id="name" aria-describedby="name">
             </div>
             <div class="mb-3">
@@ -25,13 +25,10 @@
               <label for="password_confirmation" class="form-label">Повторите пароль</label>
               <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
             </div>
-            {{--
-              TODO: Добавить дополнительные поля из задания
-              <div class="mb-3 form-check">
-                <input name="" type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Согласен на всё</label>
-              </div>
-            --}}
+            <div class="mb-3">
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
             <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
         </form>
     </div>

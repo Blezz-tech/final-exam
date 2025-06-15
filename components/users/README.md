@@ -13,7 +13,7 @@ $table->boolean('is_admin')->nullable()->default(false);
 
 ```php
 'login',
-'is_admin'
+'is_admin',
 ```
 
 Добавить дополнительные поля, которые добавили в миграции
@@ -26,10 +26,12 @@ $table->boolean('is_admin')->nullable()->default(false);
 
 И иные нужные поля для генерации
 
-В `database/seeders/DatabaseSeeder.php` добавить
+В `database/seeders/DatabaseSeeder.php` в метод `run` добавить
 
 ```php
-UserSeeder::class,
+$this->call([
+    UserSeeder::class,
+]);
 ```
 
 Прописать в консоли
@@ -38,7 +40,7 @@ UserSeeder::class,
 php artisan make:seeder UserSeeder
 ```
 
-В `database/seeders/UserSeeder` в функции run добавить генерацию пользователей
+В `database/seeders/UserSeeder` в функции `run` добавить генерацию пользователей
 
 ```php
 // admin для удобства

@@ -36,40 +36,10 @@ $this->call([
 
 Прописать в консоли
 
+Скопировать `UserSeeder.php` в `database/seeders/`
+
 ```bash
 php artisan make:seeder UserSeeder
-```
-
-В `database/seeders/UserSeeder` в функции `run` добавить генерацию пользователей
-
-```php
-// admin для удобства
-User::factory()->create([
-    'login' => 'admin1',
-    'email' => 'admin1@admin.admin',
-    'password' =>  Hash::make('123'),
-    'is_admin' => 1,
-]);
-
-// admin по заданию !!! Важно, чтобы всё совпадало с заданием
-User::factory()->create([
-    'login' => 'help',
-    'email' => 'admin@admin.admin',
-    'password' =>  Hash::make('helpme'),
-    'is_admin' => 1,
-]);
-
-// Создаём пользователя, которого будем тестировать
-$user = User::factory()->create([
-    'login' => 'user',
-    'email' => 'user@user.user',
-    'password' =>  Hash::make('123'),
-]);
-
-// Создаём ещё 10 случный пользователей
-User::factory()->count(10)->create([
-    'password' => Hash::make('123'),
-]);
 ```
 
 ВАЖНАЯ ВЕЩЬ

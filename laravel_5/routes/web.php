@@ -16,7 +16,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('home');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [AuthController::class, 'createform'])->name('auth.createform');

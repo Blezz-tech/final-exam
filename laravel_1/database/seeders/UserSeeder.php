@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'login' => 'admin1',
             'email' => 'admin1@admin.admin',
-            'password' =>  Hash::make('123'),
+            'password' =>  bcrypt('123'),
             'is_admin' => 1,
         ]);
 
@@ -26,7 +27,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'login' => 'help',
             'email' => 'admin@admin.admin',
-            'password' =>  Hash::make('helpme'),
+            'password' =>  bcrypt('helpme'),
             'is_admin' => 1,
         ]);
 
@@ -34,12 +35,12 @@ class UserSeeder extends Seeder
         $user = User::factory()->create([
             'login' => 'user',
             'email' => 'user@user.user',
-            'password' =>  Hash::make('123'),
+            'password' =>  bcrypt('123'),
         ]);
 
         // Создаём ещё 10 случный пользователей
         User::factory()->count(10)->create([
-            'password' => Hash::make('123'),
+            'password' => bcrypt('123'),
         ]);
     }
 }

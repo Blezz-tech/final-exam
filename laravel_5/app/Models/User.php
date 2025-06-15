@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'login',
+        'is_admin',
+        // Дополнительыне поля
     ];
 
     /**

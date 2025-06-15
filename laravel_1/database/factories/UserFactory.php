@@ -21,7 +21,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'phone' => fake()->phoneNumber(),
+            'phone' => '+7('.fake()->numberBetween(100,999).')-'.fake()->numberBetween(100,999).'-'.fake()->numberBetween(10,99).'-'.fake()->numberBetween(10,99),
             'login' => fake()->name(),
             // Дополнительные поля
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

@@ -23,12 +23,9 @@
                     Главная страница
                 @endif
             </a>
-            {{-- <a class="navbar-brand" href="{{ route('about') }}">О нас</a> --}}
-            {{-- <a class="navbar-brand" href="{{ route('catalog') }}">Каталог</a> --}}
-            {{-- <a class="navbar-brand" href="{{ route('contacts') }}">Контакты</a> --}}
-            {{-- TODO: Ссылки на статичные страницы (Нужно добавть свои - верхние удалить) --}}
             
             @auth
+                <a class="navbar-brand" href="{{route('orders.index')}}">Заказы</a>
                 @if (Auth::user()->is_admin)
                     {{-- <a class="navbar-brand" href="{{route('orders.list')}}" class="nav-link active">Мои заказы</a> --}}
                     {{-- TODO: Ссылки на страницы с какой-то работой АДМИНА (Нужно добавить свои - верхние удалить) --}}

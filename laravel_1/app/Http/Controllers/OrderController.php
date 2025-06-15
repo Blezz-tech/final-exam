@@ -14,7 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = auth()->user()->orders()->with('orderItems.product')->get();
+
+        return view('orders.index', compact('orders'));
     }
 
     /**

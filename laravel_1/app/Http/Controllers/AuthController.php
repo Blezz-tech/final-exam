@@ -35,9 +35,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => ['regex:/^[А-Яа-я\- ]{1,}$/u', 'required'],
+            'phone' => ['required','regex:^\+7\(\d{3}\)-\d{3}\-\d{2}\-\d{2}$'],
             'login' => ['regex:/^[0-9A-Za-z\-]+$/', 'unique:users', 'required'],
             'email' => ['email', 'unique:users', 'required'],
-            'password' => ['confirmed', 'min:6', 'required'],
+            'password' => ['confirmed', 'min:4', 'required'],
             // И иные данные для валидации
         ]);
 
@@ -46,6 +47,7 @@ class AuthController extends Controller
             'login' => $request->login,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'phone' => $request->phone,
             // И иные данные для валидации
         ]);
 

@@ -26,7 +26,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+
+        return view('orders.create', compact('products'));
     }
 
     /**
@@ -37,7 +39,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+            'address' => ['required', 'string', 'max:255'],
+        ]);
+
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'status' => 'Новый',
+            'address' => $request->address,
+        ]);
+
+        $order->orderItems()->create([
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
+        ]);
+
+        return redirect()->route('orders.index')->with('success', 'Заказ успешно создан');
     }
 
     /**
